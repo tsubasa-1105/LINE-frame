@@ -1,0 +1,343 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/* LINEデザインコンテナ */
+.line-container{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* 背景色 */
+.line-container,
+.line-container .left .msg::after,
+.line-container .right .msg::after{
+    background: #7392c0;
+}
+
+/* ヘッダー */
+.line-container .title{
+    user-select: none;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    width: 100%;
+    padding: 0.7em 0;
+    background: #263047;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0; left: 0;
+    display: block;
+}
+
+.line-container .title .exit,
+.line-container .title .menu{
+    user-select: none;
+    width: 1.2em;
+    height: 1.2em;
+    position: absolute;
+}
+
+.line-container .title .exit{
+    left: 7px; top: 10px;
+}
+
+.line-container .title .menu{
+    right: 7px; top: 10px;
+}
+
+.line-container .title .exit:hover,
+.line-container .title .menu:hover{
+    filter:brightness(80%);
+    cursor: hand;
+}
+
+
+/* システムメッセージ 日付 */
+.line-container .date{
+    text-align: center;
+    user-select: none;
+    color: #fff;
+    background: #5c709e;
+    display: table;
+    margin: .5em auto;
+    padding: .2em 1.2em;
+    border-radius: 1.1em;
+    font-size: .9em;
+    opacity: 0.9;
+}
+
+/* 送信者 名前 ここから */
+.line-container .name{
+    letter-spacing: .1em;
+    user-select: none;
+    color: #fff;
+    font-size: .7em;
+    font-weight: bold;
+    opacity: 0.8;
+    margin-bottom: .5em;
+}
+
+.line-container .right .name{
+    text-align: right;
+    margin-right: .4em;
+}
+/* 送信者 名前 ここまで */
+
+/* 送信者 アイコン ここから */
+.line-container .icon{
+    pointer-events: none;
+    user-select: none;
+    order: -2;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+}
+
+.line-container .left .icon{
+    margin-right: .7em;
+    order: -3;
+}
+
+.line-container .right .icon{
+    margin-left: .7em;
+    order: 3;
+}
+/* 送信者 アイコン ここまで */
+
+/* 送信メッセージエリア ここから */
+.line-container .balloon{
+    display: flex;
+    border-radius: 1.2em;
+    margin: .9em;
+}
+
+.line-container .balloon.right{
+    justify-content: flex-end;
+}
+
+.line-container .balloon .msg{
+    position: relative;
+    padding: .5em .8em;
+    border-radius: 1.1em;
+    max-width: 15em;
+    word-break: break-all;
+}
+
+.line-container .balloon.left .msg{
+    margin-left: .3em;
+}
+
+.line-container .balloon.right .msg{
+    margin-right: .3em;
+}
+
+.line-container .balloon.left .msg::before{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 0 0 50% 50% /0 0 100% 100%;
+    left: -0.4em;
+    top: .1em;
+    z-index: -1;
+}
+
+.line-container .balloon.left .msg::after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 15px;
+    border-radius: 0 0 50% 50% /0 0 100% 100%;
+    left: -0.4em;
+    top: -0.8em;
+    z-index: -1;
+    transform: rotate(-45deg);
+}
+
+.line-container .balloon.right .msg::before{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 15px;
+    background-color: #9be062;
+    border-radius: 0 0 50% 50% /0 0 100% 100%;
+    right: -0.4em;
+    top: .1em;
+    z-index: -1;
+    transform: scale(-1, 1);
+}
+
+.line-container .balloon.right .msg::after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 15px;
+    border-radius: 0 0 50% 50% /0 0 100% 100%;
+    right: -0.4em;
+    top: -0.8em;
+    z-index: -1;
+    transform: rotate(45deg);
+}
+
+.line-container .balloon.right .msg{
+    background-color: #9be062;
+    order: 1;
+}
+
+.line-container .balloon.left .msg{
+    background-color: #fff;
+    order: -1;
+}
+/* 送信メッセージエリア ここまで */
+
+.line-container .balloon .stamp{
+    user-select: none;
+    pointer-events: none;
+    width: 200px;
+    height: 200px;
+}
+
+/* 既読・タイムスタンプ調節 ここから */
+.line-container .balloon .data ,
+.line-container .balloon .time{
+    white-space: nowrap;
+    user-select: none;
+    color: #fff;
+    font-size: .6em;
+    margin: 0 .4em;
+    align-self: flex-end;
+    margin-bottom: .1em;
+    opacity: 0.6;
+}
+
+.line-container .balloon.right .time{
+    order: -1;
+}
+
+.line-container .balloon.left .data{
+    order: 1;
+    position: relative;
+    right: 3.3em;
+    bottom: 1.2em;
+}
+
+.line-container .balloon.right .data{
+    order: -1;
+    position: relative;
+    left: 3.3em;
+    bottom: 1.2em;
+}
+/* 既読・タイムスタンプ調節 ここまで */
+
+/* 送信ヘッダー ここから */
+.line-container .form{
+    background-color: #ffffff;
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    height: 58px;
+    border-top: #eee solid 1px;
+}
+
+.line-container .form .btn-option-1{
+    user-select: none;
+    width: 38px;
+    height: 38px;
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 10;
+}
+
+.line-container .form .btn-option-2{
+    user-select: none;
+    width: 38px;
+    height: 38px;
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 58px;
+}
+
+.line-container .form .btn-option-3{
+    user-select: none;
+    width: 38px;
+    height: 38px;
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 10;
+    visibility: hidden;
+}
+
+.line-container .form .send-msg{
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    resize: none;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: none;
+
+    background-color: #fff;
+    margin: 10px 0px 10px 0px;
+    padding: 3px 1em;
+    width: calc(100% - 38px - 38px - 38px - 50px);
+    border-radius: 23px;
+    box-shadow:0px 0px 17px 16px #ebebeb inset;
+    overflow: hidden;
+    border: solid #e0e0e0 1px;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 30px;
+    position: absolute;
+    right: 58px;
+    bottom: 0;
+
+    transition-duration: 200ms;
+}
+
+.line-container .form .send-msg:focus{
+    overflow-y: scroll;
+}
+
+.line-container .form .btn-submit{
+    margin: 10px 0px 10px 0px;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    right: 10;
+}
+
+.line-container .form .btn-submit:hover{
+    cursor: hand;
+    filter:saturate(40%);
+}
+
+.line-container .form .btn-option-1:hover,
+.line-container .form .btn-option-2:hover,
+.line-container .form .btn-option-3:hover{
+    cursor: hand;
+    filter:saturate(400%);
+}
+/* 送信ヘッダー ここまで */
